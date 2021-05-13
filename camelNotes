@@ -15,6 +15,11 @@ Where destinationName is a JMS queue or topic name. By default, the destinationN
 
 activemq:foo
 
+
+Examples
+https://www.youtube.com/watch?v=jgp9rGiuaUg
+
+
 Todo:
 Check ACK mode:
 acknowledgementModeName (consumer)
