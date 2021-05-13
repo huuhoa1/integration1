@@ -1,0 +1,37 @@
+
+Pub-Sub
+https://stackoverflow.com/questions/20608863/camel-activemq-topic-publish-subscribe
+ou could set ExchangePattern.InOnly like:
+
+.to("activemq:queue:REQUEST_QUEUE")
+.to(ExchangePattern.InOnly, "activemq:topic:UPDATE_TOPIC_NAME");
+For more information see the Camel JMS documentation.
+
+Camel Component:
+https://camel.apache.org/components/latest/activemq-component.html
+
+activemq:[queue:|topic:]destinationName[?options]
+Where destinationName is a JMS queue or topic name. By default, the destinationName is interpreted as a queue name. For example, to connect to the queue, foo use:
+
+activemq:foo
+
+Todo:
+Check ACK mode:
+acknowledgementModeName (consumer)
+
+The JMS acknowledgement name, which is one of: SESSION_TRANSACTED, CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE. There are 4 enums and the value can be one of: SESSION_TRANSACTED, CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE
+
+AUTO_ACKNOWLEDGE
+
+String
+
+Check transaction, async consumer:
+asyncConsumer (consumer)
+
+Whether the JmsConsumer processes the Exchange asynchronously. If enabled then the JmsConsumer may pickup the next message from the JMS queue, while the previous message is being processed asynchronously (by the Asynchronous Routing Engine). This means that messages may be processed not 100% strictly in order. If disabled (as default) then the Exchange is fully processed before the JmsConsumer will pickup the next message from the JMS queue. Note if transacted has been enabled, then asyncConsumer=true does not run asynchronously, as transaction must be executed synchronously (Camel 3.0 may support async transactions).
+
+
+Important:
+Camel endpoint == Le point de départ ou d'arrivée de la route Camel ex: to(activemq:queue1) représente un endpoint de départ vers la queue activemq: queue1; c'est partie qui se trouve dans le code applicatif qui 
+va envoyer un message vers le channel queue1.
+
