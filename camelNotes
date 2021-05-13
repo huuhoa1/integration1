@@ -32,6 +32,5 @@ Whether the JmsConsumer processes the Exchange asynchronously. If enabled then t
 
 
 Important:
-Camel endpoint == Le point de départ ou d'arrivée de la route Camel ex: to(activemq:queue1) représente un endpoint de départ vers la queue activemq: queue1; c'est partie qui se trouve dans le code applicatif qui 
-va envoyer un message vers le channel queue1.
+Camel endpoint == Le point de départ ou d'arrivée de la route Camel ex: to(activemq:queue1) représente un endpoint de départ vers la queue activemq: queue1; c'est partie qui se trouve dans le code applicatif qui va envoyer un message vers le channel queue1.
 
